@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block start %}
+    <h1>This is the homepage</h1>
+    
+
+    <a href="/contact">
+       contact
+    </a>
+     |
+    <a href="/about">
+      about
+   </a>
+
+
+     <table class="container">
+        <tr>
+          <th>Sno.</th>
+          <th>Name</th>
+          <th>Age</th>
+        </tr>
+
+        {% for people in peoples %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{ people.name }}</td>
+          <td>{{ people.age }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <p>
+        {{ text| truncatechars:100 }}
+      </p>
+
+      {%if "Witcher" in games %}
+        Available
+      {% else %}
+        Not Available
+
+      {%endif%}
+{% endblock %}
